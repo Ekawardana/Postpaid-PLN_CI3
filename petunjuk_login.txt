@@ -1,0 +1,7 @@
+Login Admin : 
+Username : ekawardana
+Password : eka1234
+
+Login Pelanggan :
+Username : ekaskitz
+Password : 1234
