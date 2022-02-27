@@ -31,7 +31,7 @@ class DataPel extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('dataPel/index', $data);
+        $this->load->view('admin/dataPel/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -47,7 +47,7 @@ class DataPel extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('dataPel/detail', $data);
+        $this->load->view('admin/dataPel/detail', $data);
         $this->load->view('templates/footer');
     }
 
@@ -93,7 +93,7 @@ class DataPel extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('dataPel/tambah', $data);
+            $this->load->view('admin/dataPel/tambah', $data);
             $this->load->view('templates/footer');
         } else {
             //Jika berhasil
@@ -140,7 +140,7 @@ class DataPel extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('dataPel/ubah', $data);
+            $this->load->view('admin/dataPel/ubah', $data);
             $this->load->view('templates/footer');
         } else {
             //Jika berhasil

@@ -20,11 +20,14 @@
              Administrator
          </div>
 
+         <!-- Nav Item - Dashboard -->
+         <li class="nav-item active">
          <li class="nav-item">
              <a class="nav-link" href="<?= base_url('admin'); ?>">
                  <i class="fas fa-fw fa-home"></i>
                  <span>Dashboard</span>
              </a>
+         </li>
          </li>
          <!-- Divider -->
          <hr class="sidebar-divider">
@@ -34,25 +37,33 @@
              Kelola Data
          </div>
 
+         <!-- Nav Item - Dashboard -->
+         <li class="nav-item active">
          <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('tarif'); ?>">
+             <a class="nav-link pb-0" href="<?= base_url('tarif'); ?>">
                  <i class="fas fa-fw fa-lightbulb"></i>
                  <span>Data Tarif</span>
              </a>
+         </li>
 
-             <a class="nav-link" href="<?= base_url('dataPel'); ?>">
+         <li class="nav-item">
+             <a class="nav-link pb-0" href="<?= base_url('dataPel'); ?>">
                  <i class="fas fa-fw fa-users"></i>
                  <span>Data Pelanggan</span>
              </a>
+         </li>
 
-             <a class="nav-link" href="<?= base_url('penggunaan'); ?>">
+
+         <li class="nav-item">
+             <a class="nav-link pb-0" href="<?= base_url('penggunaan'); ?>">
                  <i class="fas fa-fw fa-users"></i>
                  <span>Data Penggunaan</span>
              </a>
          </li>
+         </li>
 
          <!-- Divider -->
-         <hr class="sidebar-divider">
+         <hr class="sidebar-divider mt-3">
 
          <div class="sidebar-heading">
              Data Payment
@@ -60,20 +71,19 @@
 
 
          <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('tagihan'); ?>">
+             <a class="nav-link pb-0" href="<?= base_url('tagihan'); ?>">
                  <i class="fas fa-fw fa-store"></i>
                  <span>Data Tagihan</span>
              </a>
 
-             <a class="nav-link" href="<?= base_url('pembayaran'); ?>">
+             <a class="nav-link pb-0" href="<?= base_url('pembayaran'); ?>">
                  <i class="fas fa-fw fa-money-bill"></i>
                  <span>Data Pembayaran</span>
              </a>
-
          </li>
      <?php endif; ?>
      <!-- Divider -->
-     <hr class="sidebar-divider">
+     <hr class="sidebar-divider mt-3">
 
      <!-- Sidebar Toggler (Sidebar) -->
      <div class="text-center d-none d-md-inline">

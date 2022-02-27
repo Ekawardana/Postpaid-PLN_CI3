@@ -41,7 +41,7 @@ class Tarif extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('tarif/index', $data);
+            $this->load->view('admin/tarif/index', $data);
             $this->load->view('templates/footer');
         } else {
             //Jika berhasil
@@ -81,7 +81,7 @@ class Tarif extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('tarif/ubahTarif', $data);
+            $this->load->view('admin/tarif/ubahTarif', $data);
             $this->load->view('templates/footer');
         } else {
             //Jika berhasil, Panggil fungsi ubah tarif dari Tarif_Model

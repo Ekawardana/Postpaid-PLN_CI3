@@ -15,7 +15,7 @@
                             <th>Nama</th>
                             <th>Tanggal Bayar</th>
                             <th>Bulan</th>
-                            <th>tarif_perkwh</th>
+                            <th>Tarif KWH</th>
                             <th>Total Bayar</th>
                             <th>Nama Admin</th>
                             <th>Aksi</th>

@@ -31,7 +31,7 @@ class Profile extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('profile/index', $data);
+            $this->load->view('admin/profile/index', $data);
             $this->load->view('templates/footer');
         } else {
             /*
@@ -61,7 +61,6 @@ class Profile extends CI_Controller
                     if ($gambar_lama != 'default.jpg') {
                         unlink(FCPATH . 'assets/img/profile/' . $gambar_lama);
                     }
-
                     //Tampung data file upload beserta semua informasinya di variabel $gambar_baru
                     $gambar_baru = $this->upload->data('file_name');
                     //Panggil fungsi set untuk menyimpan gambar baru ke tabel user

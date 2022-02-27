@@ -30,7 +30,7 @@ class Pembayaran extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('pembayaran/index', $data);
+        $this->load->view('admin/pembayaran/index', $data);
         $this->load->view('templates/footer');
     }
 

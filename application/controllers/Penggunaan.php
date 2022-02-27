@@ -33,7 +33,7 @@ class Penggunaan extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('penggunaan/index', $data);
+        $this->load->view('admin/penggunaan/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -82,7 +82,7 @@ class Penggunaan extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('penggunaan/tambahPenggunaan', $data);
+            $this->load->view('admin/penggunaan/tambahPenggunaan', $data);
             $this->load->view('templates/footer');
         } else {
             // Jika berhasil
@@ -129,7 +129,7 @@ class Penggunaan extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('penggunaan/ubahPenggunaan', $data);
+            $this->load->view('admin/penggunaan/ubahPenggunaan', $data);
             $this->load->view('templates/footer');
         } else {
             // Jika berhasil
