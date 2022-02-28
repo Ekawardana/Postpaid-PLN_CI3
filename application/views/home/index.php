@@ -14,7 +14,7 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <!-- <i class="fas fa-5x fa-bolt text-warning mb-3 rotate-n-15"></i> -->
-                                    <h1 class="h4 text-success mb-4">Pembayaran Listrik!</h1>
+                                    <h1 class="h4 text-primary mb-4">Pembayaran Listrik!</h1>
                                 </div>
                                 <hr>
                                 <!-- Memberi pesan yang diambil dari session -->
@@ -52,7 +52,7 @@
                                     </div>
                                     <!-- End Input Password -->
 
-                                    <button type="submit" class="btn btn-success btn-user btn-block">
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Login
                                     </button>
                                 </form>
@@ -60,11 +60,11 @@
                                 <hr>
 
                                 <div class="text-center">
-                                    <a class="small text-success" href="<?= base_url('home/registrasi'); ?>">Buat Akun!</a>
+                                    <a class="small text-primary" href="<?= base_url('home/registrasi'); ?>">Buat Akun!</a>
                                 </div>
 
                                 <div class="text-center">
-                                    <a class="small text-success" href="<?= base_url('menu_utama'); ?>">Halaman Utama</a>
+                                    <a class="small text-primary" href="<?= base_url('menu_utama'); ?>">Halaman Utama</a>
                                 </div>
 
                             </div>

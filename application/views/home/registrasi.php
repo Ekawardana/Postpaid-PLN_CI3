@@ -7,7 +7,7 @@
                 <div class="col-lg">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-success mb-4">Buat Akun<i class="fas fa-exclamation ml-2"></i></h1>
+                            <h1 class="h4 text-primary mb-4">Buat Akun<i class="fas fa-exclamation ml-2"></i></h1>
                         </div>
                         <form class="user" method="post" action="<?= base_url('home/registrasi'); ?>">
 
@@ -108,13 +108,13 @@
                             </div>
                             <!-- End Input Password -->
 
-                            <button type="submit" class="btn btn-success btn-user btn-block">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Registrasi Akun
                             </button>
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small text-success" href="<?= base_url('home'); ?>">Sudah Punya Akun? Login!</a>
+                            <a class="small text-primary" href="<?= base_url('home'); ?>">Sudah Punya Akun? Login!</a>
                         </div>
                     </div>
                 </div>

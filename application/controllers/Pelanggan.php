@@ -42,7 +42,7 @@ class Pelanggan extends CI_Controller
         $data['tagihan'] = $this->tagihan->cekTagihanPel(['id_pelanggan' => $this->session->userdata('id_pelanggan')]);
 
         $this->load->view('templates/temp-pelanggan/header', $data);
-        $this->load->view('pelanggan/tagihan', $data);
+        $this->load->view('pelanggan/tagihan/index', $data);
         $this->load->view('templates/temp-pelanggan/footer');
     }
 
@@ -73,16 +73,54 @@ class Pelanggan extends CI_Controller
         //Cek jika falidasinya tidak sesuai maka akan dikembalikan ke halaman pembayaran
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/temp-pelanggan/header', $data);
-            $this->load->view('pelanggan/pembayaran', $data);
+            $this->load->view('pelanggan/pembayaran/index', $data);
             $this->load->view('templates/temp-pelanggan/footer');
         } else {
             // Panggil fungsi pembayaran
             $this->pembayaran->pembayaran();
             //Tampilkan session jika pembayaran berhasil
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">Selamat Pembayaran Berhasil <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span>
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">Pembayaran Berhasil <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span>
             </button></div>');
             // Kembalikan ke tampilan tagihan
             redirect('pelanggan/tagihan');
         }
+    }
+
+    public function myProfil()
+    {
+        //Ambil data pelanggan dari session
+        $data['pelanggan'] = $this->pelanggan->cekDataPel(['username' => $this->session->userdata('username')])->row_array();
+        //Ambil data pelanggan dari session
+        $data['pel'] = $this->pelanggan->cekPelanggan(['username' => $this->session->userdata('username')])->row_array();
+
+        $data['title'] = 'Profil Saya';
+        $this->load->view('templates/temp-pelanggan/header', $data);
+        $this->load->view('pelanggan/myProfile/index', $data);
+        $this->load->view('templates/temp-pelanggan/footer', $data);
+    }
+
+    // fungsi eksport PDF
+    public function exportToPdf()
+    {
+        $id_pelanggan = $this->session->userdata('id_pelanggan');
+        $data['pelanggan'] = $this->session->userdata('nama_pelanggan');
+        //Ambil data pelanggan dari session
+        $data['pel'] = $this->pelanggan->cekPelanggan(['username' => $this->session->userdata('username')])->result();
+
+        $data['items'] = $this->db->query("select*from pembayaran, v_tagihan where pembayaran.id_tagihan=v_tagihan.id_tagihan and pembayaran.id_pelanggan='$id_pelanggan'")->result_array();
+
+        $data['title'] = "Cetak Bukti Booking";
+        $this->load->view('pelanggan/pembayaran/bukti-pdf', $data);
+        $this->load->library('dompdf_gen');
+
+        $paper_size = 'A4'; // ukuran kertas
+        $orientation = 'landscape'; //tipe format kertas potrait atau landscape
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        //Convert to PDF
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Bukti Bayar.pdf", array('Attachment' => 0));
+        // nama file pdf yang di hasilkan
     }
 }

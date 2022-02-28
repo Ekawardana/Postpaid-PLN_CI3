@@ -18,6 +18,12 @@ class Pelanggan_Model extends CI_Model
         //Cek data user yang diambil dari view qw admin
         return $this->db->get_where('pelanggan', $where);
     }
+    //Cek data pelanggan dari session
+    public function cekPelanggan($where = null)
+    {
+        //Cek data user yang diambil dari view qw admin
+        return $this->db->get_where('v_pelanggan', $where);
+    }
 
     //Fungsi insert dari database
     public function insertPelanggan()

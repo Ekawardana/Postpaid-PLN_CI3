@@ -6,11 +6,6 @@
 </div>
 <!-- End of Page Wrapper -->
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -24,7 +19,7 @@
             <div class="modal-body">Klik "Logout" Jika Anda Benar Ingin Keluar</div>
             <div class="modal-footer">
                 <button class="btn btn-danger" type="button" data-dismiss="modal"><i class="fas fa-ban mr-1"></i>Cancel</button>
-                <a class="btn btn-info" href="<?= base_url('home/logout'); ?>"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                <a class="btn btn-primary" href="<?= base_url('home/logout'); ?>"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
             </div>
         </div>
     </div>
