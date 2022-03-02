@@ -22,18 +22,8 @@ class Pembayaran_Model extends CI_Model
         return $this->db->query($queryPembayaran)->result_array();
     }
 
-    public function pembayaran()
+    public function pembayaran($data)
     {
-        //Siapkan data yang nanti akan dimasukan ke tabel pembayaran
-        $data = [
-            'id_tagihan' => $this->input->post('id_tagihan', true),
-            'id_pelanggan' => $this->input->post('id_pelanggan', true),
-            'tgl_bayar' => time(),
-            'bulan' => time(),
-            'biaya_admin' => $this->input->post('biaya_admin', true),
-            'total_bayar' => $this->input->post('total_bayar', true),
-            'id_user' => $this->input->post('id_user', true),
-        ];
         //Tambah data menggunakan fungsi insert
         $this->db->insert('pembayaran', $data);
     }
@@ -43,5 +33,24 @@ class Pembayaran_Model extends CI_Model
     {
         //Hapus data dengan fungsi delete
         return $this->db->delete('pembayaran', ['id_pembayaran' => $id]);
+    }
+
+    public function kodeOtomatis($tabel, $key)
+    {
+        $this->db->select('right(' . $key . ',3) as kode', false);
+        $this->db->order_by($key, 'desc');
+        $this->db->limit(1);
+
+        $query = $this->db->get($tabel);
+        if ($query->num_rows() <> 0) {
+            $data = $query->row();
+            $kode = intval($data->kode) + 1;
+        } else {
+            $kode = 1;
+        }
+
+        $kodemax = str_pad($kode, 2, "0", STR_PAD_LEFT);
+        $kodejadi = date('dmY') . $kodemax;
+        return $kodejadi;
     }
 }

@@ -31,17 +31,32 @@
 
                     <a class="nav-item nav-link" href="<?= base_url('pelanggan/myprofil'); ?>"><i class="fas fa-fw fa-user"></i>Profile Saya</a>
 
-                    <!-- Example single danger button -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pembayaran
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Tagihan</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?= base_url('pelanggan/pembayaran'); ?>">Pembayaran</a>
+
+                    <?php if ($tagihan['status'] == "Belum Dibayar") : ?>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pembayaran
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Tagihan</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= base_url('pelanggan/pembayaran'); ?>">Pembayaran</a>
+                            </div>
                         </div>
-                    </div>
+                    <?php else : ?>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pembayaran
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Tagihan</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= base_url('pelanggan/pembayaran'); ?>">Pembayaran</a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
                     <a class="nav-item nav-link" data-toggle="modal" data-target="#logoutModal" href="<?= base_url('home/logout'); ?>">
                         <i class="fas fa-fw fa-sign-out-alt"></i> Log out

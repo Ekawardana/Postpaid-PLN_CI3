@@ -81,8 +81,8 @@
                 <?php else : ?>
                     <li class="list-group-item">Data Pembayaran Belum Ada Gan!!</li>
             </div>
-            <a href="<?= base_url() . 'pelanggan/exportToPdf/' . $this->session->userdata('id_pelanggan'); ?>" class=" btn btn-sm btn-outline-danger mt-2">
-                <span class="far fa-lg fa-fw fa-file-pdf"></span> Bukti Pembayaran
+            <a href="<?= base_url() . 'pelanggan/cekPembayaran/' . $this->session->userdata('id_pelanggan'); ?>" class=" btn btn-sm btn-outline-info mt-2">
+                <i class="fas fa-info-circle mr-2"></i>Cek Pembayaran
             </a>
         <?php endif; ?>
         </div>

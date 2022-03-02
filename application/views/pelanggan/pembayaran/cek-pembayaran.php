@@ -1,41 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title></title>
-</head>
-
-<body>
-    <style type="text/css">
-        .table-data {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table-data tr th,
-        .table-data tr td {
-            border: 1px solid black;
-            font-size: 11pt;
-            font-family: Verdana;
-            padding: 10px 10px 10px 10px;
-        }
-
-        .table-data th {
-            background-color: grey;
-        }
-
-        h3 {
-            font-family: Verdana;
-        }
-    </style>
+<div class="col-md">
     <h3>
-        <center>BUKTI PEMBAYARAN</center>
+        <center>CEK PEMBAYARAN</center>
     </h3>
     <br />
-    <table class="table-data">
+    <table class="table table-hover table-bordered">
         <thead>
             <tr>
-                <th>No</th>
+                <th>No Pembayaran</th>
                 <th>Nama</th>
                 <th>Nomor KWH</th>
                 <th>Tanggal Bayar</th>
@@ -49,11 +20,10 @@
         </thead>
         <tbody>
             <?php
-            $no = 1;
             foreach ($items as $i) {
             ?>
                 <tr>
-                    <td scope="row"><?= $no++; ?></td>
+                    <td scope="row"><?= $i['id_pembayaran']; ?></td>
                     <td><?= $i['nama_pelanggan']; ?></td>
                     <td><?= $i['nomor_kwh']; ?></td>
                     <td><?= date('d F Y', $i['tgl_bayar']); ?></td>
@@ -69,9 +39,7 @@
             ?>
         </tbody>
     </table>
-    <script type="text/javascript">
+</div>
+<!-- <script type="text/javascript">
         window.print();
-    </script>
-</body>
-
-</html>
+    </script> -->
