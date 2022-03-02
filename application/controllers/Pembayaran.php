@@ -42,4 +42,30 @@ class Pembayaran extends CI_Controller
         $this->session->set_flashdata('pesan', 'Dihapus');
         redirect('pembayaran');
     }
+
+    // Cetak Pembayaran
+    public function pembayaranPdf()
+    {
+        $data['pelanggan'] = $this->session->userdata('nama_pelanggan');
+
+        //Ambil satu data dari model tagihan
+        $data['tagihan'] = $this->tagihan->cekTagihanPel(['id_pelanggan' => $this->session->userdata('id_pelanggan')]);
+
+        $data['items'] = $this->db->query("select*from pembayaran, v_tagihan where pembayaran.id_tagihan=v_tagihan.id_tagihan")->result_array();
+
+
+        $this->load->view('admin/pembayaran/pembayaran-pdf', $data);
+
+        $this->load->library('dompdf_gen');
+
+        $paper_size = 'A4'; // ukuran kertas
+        $orientation = 'landscape'; //tipe format kertas potrait atau landscape
+        $html = $this->output->get_output();
+        $this->dompdf->set_paper($paper_size, $orientation);
+        //Convert to PDF
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("Bukti Bayar.pdf", array('Attachment' => 0));
+        // nama file pdf yang di hasilkan
+    }
 }
