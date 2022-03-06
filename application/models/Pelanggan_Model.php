@@ -41,4 +41,18 @@ class Pelanggan_Model extends CI_Model
         //Tambah data menggunakan fungsi insert
         $this->db->insert('pelanggan', $data);
     }
+
+    public function ubahPelanggan()
+    {
+        // Siapkan data yang akan diupdate
+        $name = $this->input->post('nama_pelanggan', true);
+        $username = $this->input->post('username');
+
+        //Data yang diubah
+        $this->db->set('nama_pelanggan', $name);
+        //Data yang diupdate diambil berdasarkan username
+        $this->db->where('username', $username);
+        //Panggil fungsi update data
+        $this->db->update('pelanggan');
+    }
 }

@@ -38,7 +38,6 @@ class Profile extends CI_Controller
               Jika Ada gambar yang diupload
               Buat variabel upload gambar yang berisi $_FILES
               $_FILES merupakan variabel super global yang nanti akan terisi file yang dipilih
-
             */
             $upload_gambar = $_FILES['image']['name'];
 

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 justify-content-x">
-                <?= $this->session->flashdata('message'); ?>
+                <?= $this->session->flashdata('pesan'); ?>
             </div>
         </div>
 
@@ -11,7 +11,7 @@
             <div class="card-block">
                 <center class="mt-4">
                     <img src="<?= base_url('assets/img/profile/') . $pelanggan['image']; ?>" class="rounded-circle" width="150" />
-                    <h4 class="card-title text-dark"><?= $pelanggan['nama_pelanggan']; ?></h4>
+                    <h4 class="card-title text-dark mt-2"><?= $pelanggan['nama_pelanggan']; ?></h4>
                 </center>
             </div>
             <hr>
@@ -40,6 +40,10 @@
             <div class="btn mb-3">
                 <a href="<?= base_url(); ?>" class="btn btn-danger">
                     <i class="fas fa-ban"></i> Kembali
+                </a>
+
+                <a href="<?= base_url('pelanggan/ubahProfile'); ?>" class="btn btn-primary">
+                    <i class="fas fa-user-edit"></i> Ubah
                 </a>
             </div>
         </div>

@@ -5,8 +5,24 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-
         <div class="card-body">
+            <!-- Search -->
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <form action="" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari Data Pelanggan..." name="keyword" autocomplete="off" value="<?= set_value('keyword'); ?>">
+                            <div class="input-group-append">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="fas fa-search"></i>
+                                    Cari
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Search -->
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

@@ -32,4 +32,13 @@ class Tagihan_Model extends CI_Model
         //Cek data tagihan yang diambil dari view tagihan
         return $this->db->get_where('v_tagihan', $where)->row_array();
     }
+
+    // Fungsi Cari Tagihan
+    public function cariTagihan()
+    {
+        $keyword = $this->input->post('keyword');
+        $this->db->like('nama_pelanggan', $keyword);
+        $this->db->or_like('nomor_kwh', $keyword);
+        return $this->db->get('v_tagihan')->result_array();
+    }
 }

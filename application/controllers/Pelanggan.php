@@ -114,6 +114,71 @@ class Pelanggan extends CI_Controller
         $this->load->view('templates/temp-pelanggan/footer', $data);
     }
 
+    public function ubahProfile()
+    {
+        $data['title'] = 'Ubah Profile';
+        //Ambil satu data dari session
+        $data['pelanggan'] = $this->pelanggan->cekDataPel(['username' => $this->session->userdata('username')])->row_array();
+
+        //Ambil satu data dari model tagihan
+        $data['tagihan'] = $this->tagihan->cekTagihanPel(['id_pelanggan' => $this->session->userdata('id_pelanggan')]);
+
+        //Rules validasinya jika input tidak sesuai
+        $this->form_validation->set_rules('nama_pelanggan', 'Nama Pelanggan', 'required|min_length[3]', [
+            'required' => 'Nama Harus Diisi!!',
+            'min_length' => 'Nama terlalu pendek'
+        ]);
+
+        //Cek jika validasi tidak sesuai maka akan dikembalikan ke halaman profile
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/temp-pelanggan/header', $data);
+            $this->load->view('pelanggan/myProfile/ubahProfile', $data);
+            $this->load->view('templates/temp-pelanggan/footer', $data);
+        } else {
+            /*
+              Jika Ada gambar yang diupload
+              Buat variabel upload gambar yang berisi $_FILES
+              $_FILES merupakan variabel super global yang nanti akan terisi file yang dipilih
+            */
+            $upload_gambar = $_FILES['image']['name'];
+
+            //Cek requirement gambarnya
+            if ($upload_gambar) {
+                //Tipe gambar harus gif, jpg, png
+                $config['allowed_types'] = 'gif|jpg|png';
+                //Tize file gambar yang diupload
+                $config['max_size']     = '2048';
+                //Tempat menyimpan file gambar yang telah diupload
+                $config['upload_path'] = './assets/img/profile';
+                //Panggil library upload filenya
+                $this->load->library('upload', $config);
+
+                // Cek jika berhasil
+                if ($this->upload->do_upload('image')) {
+                    // Cari gambar lama yang akan dihapus setelah gambar diupdate
+                    $gambar_lama = $data['pelanggan']['image'];
+                    //Cek jika gambar lama bukan default.jpg, hapus gambarnya setelah ada gambar baru
+                    if ($gambar_lama != 'default.jpg') {
+                        unlink(FCPATH . 'assets/img/profile/' . $gambar_lama);
+                    }
+                    //Tampung data file upload beserta semua informasinya di variabel $gambar_baru
+                    $gambar_baru = $this->upload->data('file_name');
+                    //Panggil fungsi set untuk menyimpan gambar baru ke tabel user
+                    $this->db->set('image', $gambar_baru);
+                } else {
+                    // jika gagal
+                    echo $this->upload->display_errors();
+                }
+            }
+            //Jika berhasil, Panggil fungsi ubah user dari User_Model
+            $this->pelanggan->ubahPelanggan();
+            //Tampilkan Pesan
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">Profil Diubah!!<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span>
+            </button></div>');
+            redirect('pelanggan/myprofil');
+        }
+    }
+
     // fungsi Cek Pembayaran
     public function cekPembayaran()
     {
@@ -136,16 +201,5 @@ class Pelanggan extends CI_Controller
             $this->load->view('pelanggan/pembayaran/cek-pembayaran', $data);
             $this->load->view('templates/temp-pelanggan/footer', $data);
         }
-        // $this->load->library('dompdf_gen');
-
-        // $paper_size = 'A4'; // ukuran kertas
-        // $orientation = 'landscape'; //tipe format kertas potrait atau landscape
-        // $html = $this->output->get_output();
-        // $this->dompdf->set_paper($paper_size, $orientation);
-        // //Convert to PDF
-        // $this->dompdf->load_html($html);
-        // $this->dompdf->render();
-        // $this->dompdf->stream("Bukti Bayar.pdf", array('Attachment' => 0));
-        // nama file pdf yang di hasilkan
     }
 }

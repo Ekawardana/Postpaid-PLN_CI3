@@ -24,7 +24,9 @@ class Tagihan extends CI_Controller
         $data['user'] = $this->user->cekDataUser(['username' => $this->session->userdata('username')])->row_array();
         // Panggil fungsi tampilkan semua data tagihan
         $data['tagihan'] = $this->tagihan->getAllTagihan();
-
+        if ($this->input->post('keyword')) {
+            $data['tagihan'] = $this->tagihan->cariTagihan();
+        }
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
