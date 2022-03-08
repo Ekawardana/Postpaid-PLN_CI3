@@ -61,7 +61,7 @@
                                 <!-- Panggil data penggunaan -->
                                 <th scope="row"><?= $p['nomor_kwh'] ?></th>
                                 <td><?= $p['nama_pelanggan']; ?></td>
-                                <td><?= $p['bulan'] = date('M'); ?></td>
+                                <td><?= $p['bulan']; ?></td>
                                 <td><?= $p['tahun']; ?></td>
                                 <td><?= $p['meter_awal']; ?></td>
                                 <!-- <?php if ($p['bulan']) : ?>

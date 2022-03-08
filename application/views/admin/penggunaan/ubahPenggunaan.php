@@ -9,6 +9,26 @@
                 <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan" value="<?= $penggunaan['nama_pelanggan']; ?>" disabled>
             </div>
 
+            <!-- Pilih Tahun Terbit -->
+            <div class="form-group">
+                <label for="bulan">Pilih Bulan</label>
+                <select name="bulan" class="form-control form-control-user">
+                    <option value="">Pilih Bulan</option>
+                    <?php
+                    foreach ($bulan as $b) : ?>
+                        <?php if ($b['bulan'] == $penggunaan['bulan']) : ?>
+                            <option value="<?= $b['bulan']; ?>" selected>
+                                <?= $b['bulan']; ?>
+                            </option>
+                        <?php else : ?>
+                            <option value="<?= $b['bulan']; ?>">
+                                <?= $b['bulan']; ?>
+                            </option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="meter_awal">Meter Awal</label>
                 <input type="text" class="form-control" id="meter_awal" name="meter_awal" value="<?= $penggunaan['meter_akhir']; ?>" autocomplete="off" readonly>

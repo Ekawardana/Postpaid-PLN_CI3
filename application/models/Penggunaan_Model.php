@@ -27,12 +27,18 @@ class Penggunaan_Model extends CI_Model
         return $this->db->query($queryPenggunaanId)->row_array();
     }
 
+    // Fungsi Untuk Memanggil Semua Bulan
+    public function getBulan()
+    {
+        return $this->db->get('bulan')->result_array();
+    }
+
     public function tambahPenggunaan()
     {
         //Siapkan data yang nanti akan di input
         $data = [
             'id_pelanggan' => $this->input->post('id_pelanggan', true),
-            'bulan' => date('m'),
+            'bulan' => $this->input->post('bulan', true),
             'tahun' => date('Y'),
             'meter_awal' => $this->input->post('meter_awal', true),
             'meter_akhir' => $this->input->post('meter_akhir', true)
@@ -45,7 +51,7 @@ class Penggunaan_Model extends CI_Model
     {
         //Siapkan data yang nanti akan di input
         $data = [
-            // 'bulan' => date('m'),
+            'bulan' => $this->input->post('bulan', true),
             // 'tahun' => date('Y'),
             'meter_awal' => $this->input->post('meter_awal', true),
             'meter_akhir' => $this->input->post('meter_akhir', true)

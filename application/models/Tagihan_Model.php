@@ -10,6 +10,7 @@ class Tagihan_Model extends CI_Model
         $queryTagihan = "SELECT `tagihan`.*, 
                                 `pelanggan`.`nomor_kwh`, 
                                 `pelanggan`.`nama_pelanggan`, 
+                                `penggunaan`.`bulan`, 
                                 `penggunaan`.`meter_awal`, 
                                 `penggunaan`.`meter_akhir` 
                            FROM `tagihan` 

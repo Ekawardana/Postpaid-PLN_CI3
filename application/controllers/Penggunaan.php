@@ -47,6 +47,7 @@ class Penggunaan extends CI_Controller
         $data['dataPel'] = $this->datapelanggan->getAllDataPel();
         //Panggil semua data penggunaan
         $data['penggunaan'] = $this->penggunaan->getAllPenggunaan();
+        $data['bulan'] = $this->penggunaan->getBulan();
 
         //Rules validasinya jika input tidak sesuai
         $this->form_validation->set_rules('id_pelanggan', 'ID Pelanggan', 'required|is_unique[penggunaan.id_pelanggan]', [
@@ -100,6 +101,7 @@ class Penggunaan extends CI_Controller
         $data['user'] = $this->user->cekDataUser(['username' => $this->session->userdata('username')])->row_array();
         //Panggil semua data penggunaan
         $data['penggunaan'] = $this->penggunaan->getPenggunanById($id);
+        $data['bulan'] = $this->penggunaan->getBulan();
 
         //Rules validasinya jika input tidak sesuai
         $this->form_validation->set_rules(

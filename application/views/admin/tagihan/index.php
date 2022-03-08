@@ -47,7 +47,7 @@
                                 <!-- Panggil data penggunaan -->
                                 <th scope="row"><?= $tag['nomor_kwh'] ?></th>
                                 <td><?= $tag['nama_pelanggan']; ?></td>
-                                <td><?= $tag['bulan'] = date('M'); ?></td>
+                                <td><?= $tag['bulan']; ?></td>
                                 <td><?= $tag['tahun']; ?></td>
                                 <td><?= $tag['meter_awal']; ?></td>
                                 <td><?= $tag['meter_akhir']; ?></td>

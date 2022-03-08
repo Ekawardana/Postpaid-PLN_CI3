@@ -15,11 +15,27 @@
                     <?php endforeach; ?>
                 </select>
             </div>
+
+            <!-- Pilih Bulan -->
+            <div class="form-group">
+                <label for="bulan">Pilih Bulan</label>
+                <select name="bulan" class="form-control form-control-user">
+                    <option value="">Pilih Bulan</option>
+                    <?php
+                    foreach ($bulan as $b) : ?>
+                        <option value="<?= $b['bulan']; ?>">
+                            <?= $b['bulan']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
             <small class="form-text text-danger"><?= form_error('id_pelanggan'); ?></small>
             <div class="form-group">
                 <label for="meter_awal">Meter Awal</label>
                 <input type="text" class="form-control" id="meter_awal" name="meter_awal" placeholder="Masukan Meter Awal..." value="<?= $penggunaan['meter_akhir'] = 0; ?>" readonly>
             </div>
+
 
             <div class="form-group">
                 <label for="meter_akhir">Meter Akhir</label>
