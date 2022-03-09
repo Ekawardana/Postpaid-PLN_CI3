@@ -39,7 +39,7 @@
                                 Pembayaran
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Tagihan</a>
+                                <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Info Tagihan</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('pelanggan/pembayaran'); ?>">Pembayaran</a>
                             </div>
@@ -51,7 +51,7 @@
                                 Pembayaran
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Tagihan</a>
+                                <a class="dropdown-item" href="<?= base_url('pelanggan/tagihan'); ?>">Info Tagihan</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('pelanggan/pembayaran'); ?>">Pembayaran</a>
                             </div>

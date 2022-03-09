@@ -34,7 +34,7 @@
                             <th scope="row"><?= $i++; ?></th>
                             <!-- Panggil data tarif -->
                             <td><?= $t['daya']; ?></td>
-                            <td><?= 'Rp' . $t['tarif_perkwh']; ?></td>
+                            <td><?= 'Rp' . $t['tarif_perkwh'] . ' / KWH'; ?></td>
                             <td>
                                 <a href="<?= base_url('tarif/ubahTarif/') . $t['id_tarif']; ?>" class="badge badge-info">
                                     <i class="fas fa-edit"></i> Ubah</a>
